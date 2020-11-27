@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer } from 'react'
+import './App.css'
+import cn from 'classnames'
+import { reducer } from './reducer'
+import { Header, Planet, Navbar } from './components'
+import { initializer } from './helpers'
+import { ItemContext } from './context'
 
 function App() {
+  const [state, dispatch] = useReducer(reducer, initializer())
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ItemContext.Provider value={{ state, dispatch }}>
+      <div className={cn('container', 'min-vh-100')}>
+        <Header />
+        <Planet />
+        <Navbar />
+      </div>
+    </ItemContext.Provider>
+  )
 }
-
-export default App;
+export default App 

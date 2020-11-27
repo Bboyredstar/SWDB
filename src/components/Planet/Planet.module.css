@@ -1,0 +1,31 @@
+.planetSection {
+  margin-top: 1.5em;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.planetImg {
+  max-width: 15em;
+  max-height: 15em;
+  width: 50%;
+  height: auto;
+  min-width: 30%;
+  min-height: auto;
+}
+
+.planetDescription {
+  margin-left: 1em;
+  max-width: 100%;
+  min-width: 50%;
+}
+
+.info {
+  margin-left: 1em;
+  word-break: break-all;
+}
+
+.tight {
+  margin: .5em 0;
+  padding: .1em;
+}
