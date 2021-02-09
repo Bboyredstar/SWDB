@@ -31,20 +31,25 @@ export class swapiRequests {
   async getAllPlanets() {
     try {
       const response = await fetch('/api/planets')
+      if (!response.ok) {
+        return { status: response.status, message: response.statusMessage }
+      }
       const planets = await response.json()
       return planets.results.map(transformPlanet)
     } catch (error) {
-      throw new Error('Request error!' + error)
+      throw new Error('Request error!', error)
     }
   }
   async getPlanet(id = 1) {
     try {
-      const response = await fetch(`/api/planets/${id}`)
+      const response = await fetch(`/api/planets${id}`)
+      if (!response.ok) {
+        throw new Error(response.statusText || `Problem with request!`)
+      }
       const planet = await response.json()
       return transformPlanet(planet)
-
-    } catch (error) {
-      throw new Error('Request error!')
+    } catch (err) {
+      throw new Error(err.message)
     }
   }
   async searchPlanet(name = '') {

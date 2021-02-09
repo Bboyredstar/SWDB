@@ -7,7 +7,6 @@ export const reducer = (state, action) => {
         planet: { ...action.payload },
       }
     case 'RESET_PLANET':
-      console.log(action);
       return {
         ...state,
         planet: planetInitializer()

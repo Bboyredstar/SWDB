@@ -1,5 +1,4 @@
-import { swapiRequests } from './swapi-requests'
-const swapi = new swapiRequests();
+
 const planetInitializer = () => {
   const planet = {
     id: null,
